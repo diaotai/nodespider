@@ -2,12 +2,10 @@ var cheerio = require("cheerio");
 var server = require("./curl");
 var iconv = require('iconv-lite');
  
-//var url = "http://www.iqiyi.com/"
+//本版本为爬去爱奇艺
 var url = "http://www.iqiyi.com/a_19rrh9vl6t.html";
 server.download(url, function(data) {
   if (data) {
-    //console.log(data);
- //site-piclist site-piclist-11665
     var $ = cheerio.load(data);
     $(".site-piclist_pic_link img").each(function(i, e) {
       //  console.log(i)
