@@ -18,13 +18,12 @@ function download(url, callback) {
   });
 }
 
+
 function downloadImage(url,name,callback) {
   http.get(url,(res)=>{
-   // console.log(res.body,"body")
-    fs.writeFile(`./images/${name}.jpg`,res.body,(err)=>{
-      if(err) console.log(err);
-      else console.log(`下载图片${name}`)
-    })
+    // console.log(,"body")
+    console.log("下载图片",name)
+    res.pipe(fs.createWriteStream(`./images/${name}.jpg`))
   })
 }
 
